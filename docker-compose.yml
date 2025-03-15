@@ -1,0 +1,73 @@
+name: kiwe_assignment
+
+services:
+  app:
+    build: .
+    expose:
+      - 3000
+    env_file:
+      - .env
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5431
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - NODE_ENV=production
+    deploy:
+      replicas: 12 # Run 12 instances of the app Horizontally Scaling!:
+      restart_policy:
+        condition: on-failure
+
+  db:
+    image: postgres:alpine
+    restart: always
+    ports:
+      - 5431:5431
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1002
+      POSTGRES_DB: kiwe
+    volumes:
+      - postgres_db:/var/lib/postgresql/data
+    command: -p 5431
+
+  redis:
+    image: redis:alpine
+    restart: always
+    ports:
+      - 6379:6379
+    volumes:
+      - redis_db:/data
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/certs:/etc/nginx/certs
+    depends_on:
+      - app
+  # prometheus:
+  #   image: prom/prometheus
+  #   ports:
+  #     - 9090:9090
+  #   volumes:
+  #     - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+  #   command:
+  #     - '--config.file=/etc/prometheus/prometheus.yml'
+  #   restart: always
+
+  # grafana:
+  #   image: grafana/grafana
+  #   ports:
+  #     - 3050:3050
+  #   restart: always
+  #   depends_on:
+  #     - prometheus
+
+volumes:
+  postgres_db:
+  redis_db:
