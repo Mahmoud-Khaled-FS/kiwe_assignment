@@ -14,9 +14,10 @@ import { pinoHttp } from 'pino-http';
 import { encryptResponseMiddleware } from './shared/middleware/encryptResponse';
 import Base64Encryption from './shared/utils/encryption/base64Encryption';
 import expressPrometheusMiddleware from 'express-prometheus-middleware';
+import { setupGraphQLServer } from './graphqlServer';
 // import Des64Encryption from './shared/utils/encryption/decEncryption';
 
-export function createServer(): express.Application {
+export async function createServer(): Promise<express.Application> {
   const app = express();
   app.use(express.json());
   app.use(cors());
@@ -48,6 +49,7 @@ export function createServer(): express.Application {
     }),
   );
 
+  await setupGraphQLServer(app);
   app.use(notFoundHandler());
   app.use(globalErrorHandling);
 

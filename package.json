@@ -15,6 +15,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@apollo/server": "^4.11.3",
     "@types/express-prometheus-middleware": "^1.2.3",
     "axios": "^1.8.3",
     "axios-retry": "^4.5.0",

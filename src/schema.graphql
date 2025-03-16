@@ -1,0 +1,16 @@
+type Query {
+  currentWeatherByCoordinate(lat: Float!, long: Float!): WeatherResponse
+}
+
+type WeatherResponse {
+  cityId: Int
+  weather: Weather
+}
+
+type Weather {
+  temp: Float
+  humidity: Float
+  windSpeed: Float
+  condition: String
+  city: String
+}

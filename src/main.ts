@@ -26,7 +26,7 @@ async function main() {
   setupAxiosRetryInterceptor();
   const conn = await pool.connect();
   conn.release();
-  const app = createServer();
+  const app = await createServer();
   app.listen(Config.PORT, () => {
     logger.info(`Server is running on port ${Config.PORT}`);
   });
