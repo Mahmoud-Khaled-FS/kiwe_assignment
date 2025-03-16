@@ -8,7 +8,8 @@
     "build": "tsc -p .",
     "start": "node ./dist/main.js",
     "db:migrate": "npx kysely migrate:latest",
-    "db:seed": "npx kysely seed:run"
+    "db:seed": "npx kysely seed:run",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
