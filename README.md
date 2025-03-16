@@ -2,6 +2,9 @@
 
 [![Watch the video](https://github.com/Mahmoud-Khaled-FS/kiew_assignment/blob/main/screenshots/graphql.png)](https://github.com/Mahmoud-Khaled-FS/kiew_assignment/blob/main/screenshots/postman-test.mp4)
 
+> [!NOTE]
+> If video is not showing then you can watch it [here](https://github.com/Mahmoud-Khaled-FS/kiew_assignment/blob/main/screenshots/postman-test.mp4)
+
 ## Features
 
 - REST API - Provides a robust API for accessing weather data.
@@ -137,7 +140,8 @@ the response before send to the client will be encrypted json string with differ
 encryption class implemented in `src/shared/utils/encryption/encryption.ts`
 for now there are 2 week encryption algorithm implemented in `src/shared/utils/encryption/decEncryption.ts` and `src/shared/utils/encryption/base64Encryption.ts`
 
-Note the decEncryption is deprecated and will be removed in the future
+> [!NOTE]
+> the decEncryption is deprecated and will be removed in the future
 
 ## Test Coverage Report
 
