@@ -75,6 +75,6 @@ This checklist ensures the Weather App API meets the assignment requirements for
 ## 10. Bonus Features (If Applicable)
 
 - [✔] **GraphQL**: Is GraphQL implemented for flexible querying?
-- [✘] **WebSocket**: Are real-time updates supported via WebSocket?
+- [✔] **WebSocket**: Are real-time updates supported via WebSocket?
 - [✘] **Serverless**: Is the app deployable on AWS Lambda or Kubernetes?
 - [✔] **CI/CD**: Is a GitHub Actions or GitLab CI pipeline set up? (jest example!)

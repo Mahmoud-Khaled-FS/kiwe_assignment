@@ -1,6 +1,9 @@
 import { HttpStatus } from './statusCode';
 import { Responseable, SuccessResponse } from '../../types/response';
 
+/**
+ * Custom wrapper for Response
+ */
 class AppResponse implements Responseable {
   public constructor(
     public readonly data: unknown,

@@ -3,6 +3,9 @@ import AuthService from '../../features/auth/services/auth.service';
 import { HttpStatus } from '../utils/statusCode';
 import AppError from '../utils/appError';
 
+/**
+ * check if the user is authenticated with jwt
+ */
 function isAuth(req: Request, res: Response, next: NextFunction) {
   const authHeader = req.get('Authorization');
   if (!authHeader) {

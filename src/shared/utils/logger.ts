@@ -1,6 +1,9 @@
 import pino from 'pino';
 import Config from '../../config';
 
+/**
+ * export logger
+ */
 const options =
   Config.NODE_ENV === 'development'
     ? { target: 'pino-pretty', options: { colorize: true } }

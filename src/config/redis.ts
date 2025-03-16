@@ -2,6 +2,9 @@ import Redis from 'ioredis';
 import logger from '../shared/utils/logger';
 import { Config } from './env';
 
+/**
+ * setup redis
+ */
 const redis = new Redis({
   host: Config.REDIS_HOST,
   port: Config.REDIS_PORT,

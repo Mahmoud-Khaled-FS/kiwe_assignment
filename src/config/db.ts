@@ -3,6 +3,9 @@ import { Pool } from 'pg';
 import { Config } from './env';
 import { Database } from '../types/database';
 
+/**
+ * setup database pool and orm kysely
+ */
 export const pool = new Pool({
   database: Config.DB_NAME,
   host: Config.DB_HOST,

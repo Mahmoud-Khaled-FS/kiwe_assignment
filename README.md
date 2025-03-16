@@ -46,6 +46,20 @@ each feature has a directory under `src/features` named after the feature, and c
 
 The application is built using TypeScript and Node.js, and uses Docker for containerization.
 
+Other Directories:
+
+- `scripts`: Contains scripts for building and running the application.
+- `docker-compose.yml`: Contains the Docker configuration.
+- `Dockerfile`: Contains the Docker configuration.
+- `coverage`: Contains the coverage reports.
+- `data`: Contains the data.
+- `client`: Contains the client code.
+- `postman`: Contains the Postman collection.
+- `database`: Contains the database migrations and seeds.
+- `nginx`: Contains the Nginx configuration.
+- `loadtest`: Contains the load test configuration.
+- `prometheus`: Contains the Prometheus configuration.
+
 ## Database and cache
 
 The application uses PostgreSQL as the primary database for storing data, and Redis as the primary cache for storing data.
@@ -96,6 +110,15 @@ query {
     }
   }
 }
+```
+
+## WebSocket
+
+url: ws://localhost:3000
+There is a script in the client folder to test the websocket.
+
+```bash
+node client/ws.js
 ```
 
 ## Postman Collection

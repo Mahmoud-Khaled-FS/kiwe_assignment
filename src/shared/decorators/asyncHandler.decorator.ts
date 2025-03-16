@@ -1,6 +1,11 @@
 import { NextFunction } from 'express';
 import AppError from '../utils/appError';
 
+/**
+ * wraps async methods with try-catch block
+ * and throws errors to next middleware
+ * wrap any sensitive errors with error 500
+ */
 export function asyncMethod(_: unknown, __: string, descriptor: PropertyDescriptor) {
   const fn = descriptor.value;
   descriptor.value = async function (...args: unknown[]) {

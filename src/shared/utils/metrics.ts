@@ -1,6 +1,9 @@
 import { Request, Response } from 'express';
 import client from 'prom-client';
 
+/**
+ * Basic metrics for grafana
+ */
 const collectDefaultMetrics = client.collectDefaultMetrics;
 
 collectDefaultMetrics();

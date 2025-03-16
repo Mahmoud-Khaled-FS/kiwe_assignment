@@ -1,5 +1,8 @@
 import { z, ZodError } from 'zod';
 
+/**
+ * Create a Zod schema for environment variables
+ */
 const configSchema = z.object({
   PORT: z.coerce.number().default(3000),
   TOKEN_PUBLIC: z.string(),
