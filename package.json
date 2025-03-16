@@ -18,6 +18,7 @@
   "dependencies": {
     "@apollo/server": "^4.11.3",
     "@types/express-prometheus-middleware": "^1.2.3",
+    "@types/ws": "^8.18.0",
     "axios": "^1.8.3",
     "axios-retry": "^4.5.0",
     "bcrypt": "^5.1.1",
@@ -37,6 +38,7 @@
     "pino-http": "^10.4.0",
     "reflect-metadata": "^0.2.2",
     "tsyringe": "^4.8.0",
+    "ws": "^8.18.1",
     "zod": "^3.24.2",
     "zod-validation-error": "^3.4.0"
   },

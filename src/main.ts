@@ -1,10 +1,12 @@
 import 'reflect-metadata';
 import 'dotenv/config';
+import { Server } from 'node:http';
 import { createServer } from './server';
 import logger from './shared/utils/logger';
 import { pool } from './config/db';
 import './config/redis';
 import Config, { setupAxiosRetryInterceptor } from './config';
+import { setupWebSocket } from './ws ';
 
 process.on('uncaughtException', (error: Error) => {
   // NOTE (MAHMOUD) - Error should handle here!
@@ -27,7 +29,9 @@ async function main() {
   const conn = await pool.connect();
   conn.release();
   const app = await createServer();
-  app.listen(Config.PORT, () => {
+  const server = new Server(app);
+  setupWebSocket(server);
+  server.listen(Config.PORT, () => {
     logger.info(`Server is running on port ${Config.PORT}`);
   });
 }
