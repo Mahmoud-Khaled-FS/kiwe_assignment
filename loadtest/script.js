@@ -1,5 +1,5 @@
 import http from 'k6/http';
-import { sleep } from 'k6';
+import { check, sleep } from 'k6';
 
 export const options = {
   // stages: [
@@ -8,7 +8,7 @@ export const options = {
   //   // { duration: '30s', target: 0 }, // Ramp down to 0 users over 1 minute
   // ],
 
-  vus: 1000,
+  vus: 100,
   duration: '3s',
 
   thresholds: {
@@ -19,12 +19,11 @@ export const options = {
 };
 
 export default function () {
-  const res = http.get('http://localhost:3000/api/v1/weather/city?city=cairo', { insecureSkipTLSVerify: true });
+  const res = http.get('http://localhost/api/v1/weather/city?city=cairo', { insecureSkipTLSVerify: true });
 
-  if (res.status !== 200) {
-    console.log(`Request failed with status: ${res.status}`);
-  }
-
+  check(res, {
+    'is status 200': (r) => r.status === 200,
+  });
   // Simulate user think time (e.g., 0.5-2 seconds)
-  sleep(Math.random() * 1.5 + 0.5);
+  sleep(0.1);
 }

@@ -4,7 +4,7 @@ import { createServer } from './server';
 import logger from './shared/utils/logger';
 import { pool } from './config/db';
 import './config/redis';
-import Config from './config';
+import Config, { setupAxiosRetryInterceptor } from './config';
 
 process.on('uncaughtException', (error: Error) => {
   // NOTE (MAHMOUD) - Error should handle here!
@@ -23,6 +23,7 @@ process.on('unhandledRejection', (error: Error) => {
 });
 
 async function main() {
+  setupAxiosRetryInterceptor();
   const conn = await pool.connect();
   conn.release();
   const app = createServer();

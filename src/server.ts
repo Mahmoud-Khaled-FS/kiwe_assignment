@@ -1,8 +1,8 @@
 import express, { Router } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
-// import rateLimit from 'express-rate-limit';
-// import { rateLimitConfig } from './config/rateLimit';
+import rateLimit from 'express-rate-limit';
+import { rateLimitConfig } from './config/rateLimit';
 import Config from './config';
 import { appResponseHandlerMiddleware } from './shared/middleware/appResponseAction';
 import notFoundHandler from './shared/middleware/notFound';
@@ -21,7 +21,7 @@ export function createServer(): express.Application {
   app.use(express.json());
   app.use(cors());
   app.use(helmet());
-  // app.use(rateLimit(rateLimitConfig));
+  app.use(rateLimit(rateLimitConfig));
 
   app.use(appResponseHandlerMiddleware());
 
