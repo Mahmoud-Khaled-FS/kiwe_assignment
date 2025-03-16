@@ -7,6 +7,8 @@
 
 ## Features
 
+Check out full Code Review Checklist in [CODE_REVIEW_CHECKLIST.md](https://github.com/Mahmoud-Khaled-FS/kiew_assignment/blob/main/CODE_REVIEW_CHECKLIST.md)
+
 - REST API - Provides a robust API for accessing weather data.
 - Dependency Injection - Ensures modular and maintainable code.
 - PostgreSQL - Used as the primary database for storing data.
